@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.sacoding.prs.R
 import com.sacoding.prs.databinding.Fragment2Binding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class Fragment2 :Fragment(R.layout.fragment2){
     private lateinit var binding: Fragment2Binding
     override fun onCreateView(
