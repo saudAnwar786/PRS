@@ -1,15 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navgraph"
     app:startDestination="@id/fragment1">
 
     <fragment
         android:id="@+id/fragment1"
         android:name="com.sacoding.prs.ui.fragments.Fragment1"
-        android:label="Fragment1" />
+        android:label="Fragment1" >
+        <action
+            android:id="@+id/action_fragment1_to_fragment_User"
+            app:destination="@id/fragment_User" />
+        <argument
+            android:name="user_id"
+            app:argType="string"
+            android:defaultValue='"19"' />
+    </fragment>
     <fragment
         android:id="@+id/fragment2"
         android:name="com.sacoding.prs.ui.fragments.Fragment2"
         android:label="Fragment2" />
+    <fragment
+        android:id="@+id/fragment_User"
+        android:name="com.sacoding.prs.ui.fragments.Fragment_User"
+        android:label="fragment__user"
+        tools:layout="@layout/fragment__user" >
+        <argument
+            android:name="user_id"
+            app:argType="string"
+            android:defaultValue='"19"' />
+    </fragment>
 </navigation>
