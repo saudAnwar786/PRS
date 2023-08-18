@@ -6,11 +6,12 @@ import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Query
 
 
 interface ProductApi {
 
-    @POST("/Recommended_items")
-    suspend fun sendUserId(@Body userId:String):List<Product>
+    @GET("/Recommended_items")
+    suspend fun getAllRecommended(@Body userId:String):List<Product>
 
 }
