@@ -5,26 +5,23 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.sacoding.prs.data.models.Product
-import com.sacoding.prs.data.models.RecommendedItems
-import com.sacoding.prs.databinding.Fragment1Binding
 import com.sacoding.prs.databinding.ItemviewBinding
 
 class MainAdapter : RecyclerView.Adapter<MainAdapter.MainViewHolder>() {
 
     inner class MainViewHolder(val binding: ItemviewBinding):RecyclerView.ViewHolder(binding.root)
 
-    val differCallBack = object : DiffUtil.ItemCallback<Product>(){
+    val differCallBack = object : DiffUtil.ItemCallback<List<Double>>(){
         override fun areItemsTheSame(
-            oldItem: Product,
-            newItem: Product
+            oldItem: List<Double>,
+            newItem: List<Double>
         ): Boolean {
             return oldItem.hashCode() == newItem.hashCode()
         }
 
         override fun areContentsTheSame(
-            oldItem: Product,
-            newItem: Product
+            oldItem: List<Double>,
+            newItem: List<Double>
         ): Boolean {
             return oldItem == newItem
         }
@@ -43,9 +40,8 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.MainViewHolder>() {
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
         val currItem = differ.currentList[position]
         holder.binding.apply {
-            tvProduct.text = currItem.product[0].toString()
-            tvPercentage.text = currItem.product[1].toString()
+            tvProduct.text = currItem[0].toString()
+            tvPercentage.text = currItem[1].toString()
         }
-
     }
 }

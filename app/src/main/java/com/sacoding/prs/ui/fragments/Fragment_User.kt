@@ -8,6 +8,7 @@
  import androidx.fragment.app.viewModels
  import androidx.lifecycle.Observer
  import androidx.navigation.NavArgs
+ import androidx.navigation.fragment.findNavController
  import androidx.navigation.fragment.navArgs
  import androidx.recyclerview.widget.LinearLayoutManager
  import com.google.android.material.snackbar.Snackbar
@@ -18,7 +19,7 @@
  import com.sacoding.prs.others.Resource
  import com.sacoding.prs.ui.viewModels.MainViewModel
  import dagger.hilt.android.AndroidEntryPoint
-
+@AndroidEntryPoint
 class Fragment_User : Fragment(R.layout.fragment__user){
 
    private lateinit var binding: FragmentUserBinding
@@ -28,6 +29,12 @@ class Fragment_User : Fragment(R.layout.fragment__user){
     binding= FragmentUserBinding.bind(view)
 //      binding.tvUserId.text= getArguments()?.getString("user_id")
         binding.tvUserId.text=args.userId
+      binding.btnRecommentItems.setOnClickListener{
+          val bundle=Bundle().apply {
+              putString("user_id", args.userId)
+          }
+          findNavController().navigate(R.id.action_fragment_User_to_recommendedProductsFragment,bundle)
+      }
   }
 
 }

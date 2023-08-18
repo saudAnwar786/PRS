@@ -9,16 +9,23 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.sacoding.prs.Adapter.MainAdapter
+import com.sacoding.prs.R
 import com.sacoding.prs.databinding.Fragment1Binding
+import com.sacoding.prs.databinding.FragmentRecommendedProductsBinding
 import com.sacoding.prs.others.Resource
 import com.sacoding.prs.ui.viewModels.MainViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-class RecommendedProductsFragment:Fragment() {
-    private lateinit var binding: Fragment1Binding
+@AndroidEntryPoint
+class RecommendedProductsFragment:Fragment(R.layout.fragment_recommended_products) {
+    private lateinit var binding: FragmentRecommendedProductsBinding
     private lateinit var mainAdapter: MainAdapter
     private val viewModel: MainViewModel by viewModels()
+    private val args: RecommendedProductsFragmentArgs by navArgs()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -27,8 +34,10 @@ class RecommendedProductsFragment:Fragment() {
         return super.onCreateView(inflater, container, savedInstanceState)
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding = Fragment1Binding.bind(view)
+        binding = FragmentRecommendedProductsBinding.bind(view)
         super.onViewCreated(view, savedInstanceState)
+        setUpRecyclerView()
+        viewModel.sendUserId(args.userId.toInt())
         viewModel.uiState.observe(viewLifecycleOwner, Observer{ res->
             when(res){
                 is Resource.Error -> {
@@ -41,7 +50,8 @@ class RecommendedProductsFragment:Fragment() {
                 }
                 is Resource.Success -> {
                     binding.progressBar.visibility = View.GONE
-                    mainAdapter.differ.submitList(res.data)
+
+                    mainAdapter.differ.submitList(res.data?.recommended_items)
                 }
             }
         })
@@ -50,6 +60,10 @@ class RecommendedProductsFragment:Fragment() {
 
     }
     private fun setUpRecyclerView(){
-
+        mainAdapter= MainAdapter()
+        binding.rv.apply {
+            adapter=mainAdapter
+            layoutManager=LinearLayoutManager(activity)
+        }
     }
 }
