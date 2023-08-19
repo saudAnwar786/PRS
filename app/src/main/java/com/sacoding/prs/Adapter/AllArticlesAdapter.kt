@@ -12,6 +12,12 @@ class AllArticlesAdapter : RecyclerView.Adapter<AllArticlesAdapter.AllArticlesVi
 
     inner class AllArticlesViewHolder(val binding: ArticleItemBinding) : RecyclerView.ViewHolder(binding.root)
 
+    private var onItemClickListener: OnItemClickListener? = null
+
+    // Define the OnItemClickListener interface
+    interface OnItemClickListener {
+        fun onItemClick(article: Double)
+    }
     private val differCallBack = object : DiffUtil.ItemCallback<Double>(){
         override fun areItemsTheSame(oldItem: Double, newItem: Double): Boolean {
             return oldItem.hashCode()==newItem.hashCode()
@@ -40,12 +46,6 @@ class AllArticlesAdapter : RecyclerView.Adapter<AllArticlesAdapter.AllArticlesVi
         return differ.currentList.size
     }
 
-    private var onItemClickListener: OnItemClickListener? = null
-
-    // Define the OnItemClickListener interface
-    interface OnItemClickListener {
-        fun onItemClick(article: Double)
-    }
     fun setOnItemClickListener(listener: OnItemClickListener) {
         this.onItemClickListener = listener
     }

@@ -4,7 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sacoding.prs.data.models.Articles
-import com.sacoding.prs.data.models.Product
+import com.sacoding.prs.data.models.RecommendedItems
 import com.sacoding.prs.others.Resource
 import com.sacoding.prs.repositories.MainRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -17,11 +17,17 @@ class MainViewModel @Inject constructor(
     private val repository: MainRepository
 ) :ViewModel(){
 
-    val uiState: MutableLiveData<Resource<List<Double>>> = MutableLiveData()
+
+
+
+    val uiState: MutableLiveData<Resource<RecommendedItems>> = MutableLiveData()
+
     val uiStateForArticles: MutableLiveData<Resource<Articles>> = MutableLiveData()
 
-
-    fun sendUserId(userId:String){
+//  init {
+//      sendUserId(20)
+//  }
+    fun sendUserId(userId:Int){
         viewModelScope.launch {
             val result = repository.getAllRecommendProducts(userId)
             result.collectLatest { res->
