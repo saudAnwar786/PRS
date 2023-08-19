@@ -27,6 +27,7 @@ class FragmentAllArticles : Fragment(R.layout.fragment_all_articles) {
         super.onViewCreated(view, savedInstanceState)
         binding=FragmentAllArticlesBinding.bind(view)
 
+
         setUpRecyclerView()
         viewModel.getAllArticles()
         articlesAdapter.setOnItemClickListener(object :AllArticlesAdapter.OnItemClickListener{
