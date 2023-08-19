@@ -17,7 +17,7 @@ class MainViewModel @Inject constructor(
     private val repository: MainRepository
 ) :ViewModel(){
 
-    val uiState: MutableLiveData<Resource<List<Product>>> = MutableLiveData()
+    val uiState: MutableLiveData<Resource<List<Double>>> = MutableLiveData()
     val uiStateForArticles: MutableLiveData<Resource<Articles>> = MutableLiveData()
 
 
@@ -35,7 +35,7 @@ class MainViewModel @Inject constructor(
                     is Resource.Loading -> {
                         uiState.postValue(Resource.Loading())
                     }
-                    else ->{}
+
                 }
             }
         }
