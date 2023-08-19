@@ -22,5 +22,5 @@ interface ProductApi {
     suspend fun getAllArticles() : Articles
 
     @GET("/search_by_article_id")
-    suspend fun getArticleDetail(@Query("user_id") userId:Int,@Query("article_id") articleId:Double) : ArticleDetail
+    suspend fun getArticleDetail(@Query("user_id") userId:Int,@Query("article_id") articleId:Long) : ArticleDetail
 }

@@ -65,7 +65,7 @@ class MainViewModel @Inject constructor(
             }
         }
     }
-    fun getArticleDetail(userId:Int,articleId:Double){
+    fun getArticleDetail(userId:Int,articleId:Long){
         viewModelScope.launch {
             val result = repository.getArticleDetail(userId, articleId)
             result.collectLatest {

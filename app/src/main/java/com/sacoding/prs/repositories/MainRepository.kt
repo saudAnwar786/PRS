@@ -42,13 +42,14 @@ class MainRepository @Inject constructor(
             Log.d("Tag",e.message.toString())
             return@flow
         }catch (e: HttpException){
-        emit( Resource.Error("server not reachable"))
+        emit( Resource.Error(e.message()))
+            Log.d("Tag",e.message.toString())
         return@flow
         }
         emit(Resource.Success(response))
     }
 
-    suspend fun getArticleDetail( userId:Int, articleId:Double) = flow {
+    suspend fun getArticleDetail( userId:Int, articleId:Long) = flow {
         emit(Resource.Loading())
         val response = try{
             api.getArticleDetail(userId,articleId)

@@ -1,7 +1,10 @@
 package com.sacoding.prs.ui.fragments
 
+import android.app.Dialog
 import android.os.Bundle
 import android.view.View
+import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -30,8 +33,23 @@ class FragmentAllArticles : Fragment(R.layout.fragment_all_articles) {
         setUpRecyclerView()
         viewModel.getAllArticles()
         articlesAdapter.setOnItemClickListener(object :AllArticlesAdapter.OnItemClickListener{
-            override fun onItemClick(article: Double) {
+            override fun onItemClick(article: Long) {
+                viewModel.getArticleDetail(args.userId.toInt(),article)
+                viewModel.articleDetail.observe(viewLifecycleOwner, Observer {
+                    when(it){
+                        is Resource.Success->{
+                            val prodName=it.data?.prod_name ?: ""
+                            val prodProbab=it.data?.probability.toString() ?: ""
+                            val prodId=it.data?.article_id.toString()?:""
+                            showDialog(prodId,prodName,prodProbab)
+                        }
 
+                        is Resource.Error -> Toast.makeText(requireContext(),"${it.message}",Toast.LENGTH_LONG).show()
+                        is Resource.Loading -> {
+                            Snackbar.make(view,"Loading...",Snackbar.LENGTH_LONG).show()
+                        }
+                    }
+                })
             }
         })
         viewModel.uiStateForArticles.observe(viewLifecycleOwner, Observer {
@@ -48,6 +66,21 @@ class FragmentAllArticles : Fragment(R.layout.fragment_all_articles) {
 
             }
         })
+    }
+
+
+    private fun showDialog(prodId: String, prodName: String, prodProbab: String) {
+        val dialog=Dialog(requireContext()).apply {
+            setContentView(R.layout.article_dialog)
+            setCancelable(true)
+        }
+        val tv_prodName=dialog.findViewById<TextView>(R.id.tv_product_name)
+        val tv_prodId=dialog.findViewById<TextView>(R.id.tv_product_id)
+        val tv_prodProbab=dialog.findViewById<TextView>(R.id.tv_product_buying_probability)
+        tv_prodName.text=prodName
+        tv_prodId.text=prodId
+        tv_prodProbab.text=prodProbab
+        dialog.show()
     }
 
     private fun setUpRecyclerView(){
