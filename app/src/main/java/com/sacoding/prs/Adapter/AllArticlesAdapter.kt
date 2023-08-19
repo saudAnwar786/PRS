@@ -67,16 +67,5 @@ class AllArticlesAdapter : RecyclerView.Adapter<AllArticlesAdapter.AllArticlesVi
     fun setOnItemClickListener(listener: OnItemClickListener) {
         this.onItemClickListener = listener
     }
-    fun convertStringToDouble(inputString: String): Double {
-        val formatter = NumberFormat.getInstance(Locale.US) as DecimalFormat
-        formatter.applyPattern("#########") // Set the desired decimal format
 
-        try {
-            val number = formatter.parse(inputString)
-            return number?.toDouble() ?: 0.0 // Handle invalid input, if necessary
-        } catch (e: ParseException) {
-            e.printStackTrace()
-            return 0.0 // Handle the exception
-        }
-    }
 }

@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.sacoding.prs.data.models.ArticleDetail
 import com.sacoding.prs.data.models.Articles
 import com.sacoding.prs.data.models.RecommendedItems
+import com.sacoding.prs.data.models.UserHistory
 import com.sacoding.prs.others.Resource
 import com.sacoding.prs.repositories.MainRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -22,6 +23,7 @@ class MainViewModel @Inject constructor(
     val uiStateForArticles: MutableLiveData<Resource<Articles>> = MutableLiveData()
 
     val articleDetail:MutableLiveData<Resource<ArticleDetail>> = MutableLiveData()
+    val uiStateUserHistory:MutableLiveData<Resource<UserHistory>> = MutableLiveData()
 
 //  init {
 //      sendUserId(20)
@@ -78,6 +80,24 @@ class MainViewModel @Inject constructor(
                     }
                     is Resource.Success -> {
                         articleDetail.postValue(Resource.Success(it.data!!))
+                    }
+                }
+            }
+        }
+    }
+    fun getUserHistory(userId: Int){
+        viewModelScope.launch {
+            val result = repository.getUserHistory(userId)
+            result.collectLatest {
+                when(it){
+                    is Resource.Error -> {
+                        uiStateUserHistory.postValue(Resource.Error(it.message?:"An Unknown error occurred"))
+                    }
+                    is Resource.Loading -> {
+                        uiStateUserHistory.postValue(Resource.Loading())
+                    }
+                    is Resource.Success -> {
+                        uiStateUserHistory.postValue(Resource.Success(it.data!!))
                     }
                 }
             }

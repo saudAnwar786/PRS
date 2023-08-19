@@ -55,9 +55,6 @@ class RecommendedProductsFragment:Fragment(R.layout.fragment_recommended_product
                 }
             }
         })
-
-
-
     }
     private fun setUpRecyclerView(){
         mainAdapter= MainAdapter()

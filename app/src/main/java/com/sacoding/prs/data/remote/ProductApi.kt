@@ -3,6 +3,7 @@ package com.sacoding.prs.data.remote
 import com.sacoding.prs.data.models.ArticleDetail
 import com.sacoding.prs.data.models.Articles
 import com.sacoding.prs.data.models.RecommendedItems
+import com.sacoding.prs.data.models.UserHistory
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
@@ -23,4 +24,7 @@ interface ProductApi {
 
     @GET("/search_by_article_id")
     suspend fun getArticleDetail(@Query("user_id") userId:Int,@Query("article_id") articleId:Long) : ArticleDetail
+
+    @GET("/history_records")
+    suspend fun getUserHistory(@Query("user_id") userId:Int):UserHistory
 }
