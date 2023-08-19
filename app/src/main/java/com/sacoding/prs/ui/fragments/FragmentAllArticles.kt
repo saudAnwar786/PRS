@@ -42,7 +42,6 @@ class FragmentAllArticles : Fragment(R.layout.fragment_all_articles) {
 
             }
         })
-
     }
 
     private fun setUpRecyclerView(){
