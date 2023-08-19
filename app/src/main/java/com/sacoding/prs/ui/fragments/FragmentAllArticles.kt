@@ -32,6 +32,7 @@ class FragmentAllArticles : Fragment(R.layout.fragment_all_articles) {
         viewModel.getAllArticles()
         articlesAdapter.setOnItemClickListener(object :AllArticlesAdapter.OnItemClickListener{
             override fun onItemClick(article: Double) {
+                viewModel.getArticleDetail(args.userId.toInt(),article)
 
             }
         })
