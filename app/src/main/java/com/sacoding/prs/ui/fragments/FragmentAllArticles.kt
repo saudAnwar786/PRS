@@ -2,7 +2,6 @@ package com.sacoding.prs.ui.fragments
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -29,11 +28,6 @@ class FragmentAllArticles : Fragment(R.layout.fragment_all_articles) {
         binding=FragmentAllArticlesBinding.bind(view)
         setUpRecyclerView()
         viewModel.getAllArticles()
-        articlesAdapter.setOnItemClickListener(object  : AllArticlesAdapter.OnItemClickListener{
-            override fun onItemClick(article: Double) {
-                Snackbar.make(view,"${article} ye hai",Snackbar.LENGTH_LONG).show()
-            }
-        })
         viewModel.uiStateForArticles.observe(viewLifecycleOwner, Observer {
             when(it){
                 is Resource.Success->{

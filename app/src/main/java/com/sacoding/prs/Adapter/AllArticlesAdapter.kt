@@ -39,14 +39,4 @@ class AllArticlesAdapter : RecyclerView.Adapter<AllArticlesAdapter.AllArticlesVi
     override fun getItemCount(): Int {
         return differ.currentList.size
     }
-
-    private var onItemClickListener: OnItemClickListener? = null
-
-    // Define the OnItemClickListener interface
-    interface OnItemClickListener {
-        fun onItemClick(article: Double)
-    }
-    fun setOnItemClickListener(listener: OnItemClickListener) {
-        this.onItemClickListener = listener
-    }
 }
