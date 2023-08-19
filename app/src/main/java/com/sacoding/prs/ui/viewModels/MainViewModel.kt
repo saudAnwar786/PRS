@@ -3,6 +3,7 @@ package com.sacoding.prs.ui.viewModels
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.sacoding.prs.data.models.Articles
 import com.sacoding.prs.data.models.RecommendedItems
 import com.sacoding.prs.others.Resource
 import com.sacoding.prs.repositories.MainRepository
@@ -17,6 +18,7 @@ class MainViewModel @Inject constructor(
 ) :ViewModel(){
 
     val uiState: MutableLiveData<Resource<RecommendedItems>> = MutableLiveData()
+    val uiStateForArticles: MutableLiveData<Resource<Articles>> = MutableLiveData()
 
 //  init {
 //      sendUserId(20)
@@ -35,6 +37,27 @@ class MainViewModel @Inject constructor(
                     is Resource.Loading -> {
                         uiState.postValue(Resource.Loading())
                     }
+                    else ->{}
+                }
+            }
+        }
+    }
+    fun getAllArticles(){
+        viewModelScope.launch {
+            val result=repository.getAllArticles()
+            result.collectLatest {
+                when(it){
+                    is Resource.Success->{
+                        uiStateForArticles.postValue(Resource.Success(it.data!!))
+                    }
+
+                    is Resource.Error -> uiStateForArticles.postValue(Resource.Error(it.message!!))
+
+                    is Resource.Loading -> {
+                        uiStateForArticles.postValue(Resource.Loading())
+                    }
+
+                    else -> {}
                 }
             }
         }

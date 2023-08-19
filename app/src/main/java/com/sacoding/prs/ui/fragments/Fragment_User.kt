@@ -35,6 +35,12 @@ class Fragment_User : Fragment(R.layout.fragment__user){
           }
           findNavController().navigate(R.id.action_fragment_User_to_recommendedProductsFragment,bundle)
       }
+      binding.btnShowAllProducts.setOnClickListener{
+          val bundle=Bundle().apply {
+              putString("user_id", args.userId)
+          }
+          findNavController().navigate(R.id.action_fragment_User_to_fragmentAllArticles,bundle)
+      }
   }
 
 }
