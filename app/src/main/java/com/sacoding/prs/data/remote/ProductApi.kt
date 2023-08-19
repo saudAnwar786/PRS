@@ -2,6 +2,7 @@ package com.sacoding.prs.data.remote
 
 import com.sacoding.prs.data.models.ArticleDetail
 import com.sacoding.prs.data.models.Articles
+import com.sacoding.prs.data.models.ProductCategory
 import com.sacoding.prs.data.models.RecommendedItems
 import com.sacoding.prs.data.models.UserHistory
 import retrofit2.http.Body
@@ -27,4 +28,8 @@ interface ProductApi {
 
     @GET("/history_records")
     suspend fun getUserHistory(@Query("user_id") userId:Int):UserHistory
+
+    @GET("/categorywise_recommendation")
+    suspend fun getProductCategory(@Query("user_id") userId:Int,@Query("category") category:List<String>): ProductCategory
+
 }

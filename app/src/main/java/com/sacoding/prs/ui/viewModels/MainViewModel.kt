@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sacoding.prs.data.models.ArticleDetail
 import com.sacoding.prs.data.models.Articles
+import com.sacoding.prs.data.models.ProductCategory
 import com.sacoding.prs.data.models.RecommendedItems
 import com.sacoding.prs.data.models.UserHistory
 import com.sacoding.prs.others.Resource
@@ -25,6 +26,7 @@ class MainViewModel @Inject constructor(
     val articleDetail:MutableLiveData<Resource<ArticleDetail>> = MutableLiveData()
     val uiStateUserHistory:MutableLiveData<Resource<UserHistory>> = MutableLiveData()
 
+    val uiStateProductCategory:MutableLiveData<Resource<ProductCategory>> = MutableLiveData()
 //  init {
 //      sendUserId(20)
 //  }
@@ -98,6 +100,24 @@ class MainViewModel @Inject constructor(
                     }
                     is Resource.Success -> {
                         uiStateUserHistory.postValue(Resource.Success(it.data!!))
+                    }
+                }
+            }
+        }
+    }
+    fun getProductCategory(userId: Int,category:List<String>){
+        viewModelScope.launch {
+            val result = repository.getProductCategory(userId, category)
+            result.collectLatest {
+                when(it){
+                    is Resource.Error -> {
+                        uiStateProductCategory.postValue(Resource.Error(it.message?:"unknown error occurred"))
+                    }
+                    is Resource.Loading -> {
+                        uiStateProductCategory.postValue(Resource.Loading())
+                    }
+                    is Resource.Success -> {
+                        uiStateProductCategory.postValue(Resource.Success(it.data!!))
                     }
                 }
             }

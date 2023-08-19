@@ -78,4 +78,18 @@ class MainRepository @Inject constructor(
         }
         emit(Resource.Success(response))
     }
+    suspend fun getProductCategory(userId: Int,category:List<String>) = flow {
+        emit(Resource.Loading())
+        val response = try{
+            api.getProductCategory(userId, category)
+        }catch (e:IOException){
+            emit(Resource.Error(e.message?:""))
+            Log.d("Tag",e.message.toString())
+            return@flow
+        }catch (e: HttpException){
+            emit( Resource.Error("server not reachable"))
+            return@flow
+        }
+        emit(Resource.Success(response))
+    }
 }
