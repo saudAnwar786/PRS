@@ -13,9 +13,6 @@ interface ProductApi {
     @GET("/Recommended_items")
     suspend fun getAllRecommended(@Query("user_id")user_id : Int):RecommendedItems
 
-//    @GET("/history_records")
-//    suspend fun getHistoryOfUser(@Query("user_id")user_id : Int):
-
-    @GET("/article_id")
-    suspend fun getAllArticles() : Articles
+   @GET("/article_id")
+   suspend fun getAllArticles():Articles
 }
