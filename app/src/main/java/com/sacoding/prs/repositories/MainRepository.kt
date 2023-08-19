@@ -1,10 +1,14 @@
 package com.sacoding.prs.repositories
 
 import android.util.Log
+import com.sacoding.prs.data.models.ArticleDetail
 import com.sacoding.prs.data.remote.ProductApi
 import com.sacoding.prs.others.Resource
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
+
 import retrofit2.HttpException
+import retrofit2.http.Query
 import java.io.IOException
 import javax.inject.Inject
 
@@ -42,5 +46,21 @@ class MainRepository @Inject constructor(
         return@flow
         }
         emit(Resource.Success(response))
+    }
+
+    suspend fun getArticleDetail( userId:Int, articleId:Double) = flow {
+        emit(Resource.Loading())
+        val response = try{
+            api.getArticleDetail(userId,articleId)
+        }catch (e:IOException){
+            emit(Resource.Error(e.message?:""))
+            Log.d("Tag",e.message.toString())
+            return@flow
+        }catch (e: HttpException){
+            emit( Resource.Error("server not reachable"))
+            return@flow
+        }
+        emit(Resource.Success(response))
+
     }
 }
