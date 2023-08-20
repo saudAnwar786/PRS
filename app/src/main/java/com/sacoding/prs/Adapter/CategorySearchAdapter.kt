@@ -39,7 +39,6 @@ class CategorySearchAdapter: RecyclerView.Adapter<CategorySearchAdapter.Category
             val formattedNumber = String.format("%.3f",currItem.Probability*100)
             tvCategoryProbability.text=formattedNumber+"%"
             tvProdCategory.text=currItem.Product_category.toString()
-            tvProdCode.text=currItem.product_code.toString()
             tvProdName.text=currItem.product_name.toString()
             tvArticleId.text=currItem.article_id.toString()
             val db=dbRef.child(currItem.Product_category)

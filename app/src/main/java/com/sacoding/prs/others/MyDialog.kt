@@ -33,7 +33,7 @@ class MyDialog: DialogFragment() {
                         }
                     })
                 .setPositiveButton(
-                    "Seach",
+                    "Recommend Me",
                     DialogInterface.OnClickListener { dialog, id ->
                         val listener = targetFragment as? DataListener
                         listener?.onDataReceived(selectedItems)

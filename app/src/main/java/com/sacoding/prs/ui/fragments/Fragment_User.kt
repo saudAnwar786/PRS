@@ -39,8 +39,8 @@ class Fragment_User : Fragment(R.layout.fragment__user),DataListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentUserBinding.bind(view)
-        binding.tvUserId.text = args.userId
-        binding.btnRecommentItems.setOnClickListener {
+        binding.tvUserId.text = "User ID: "+args.userId
+        binding.llRecommendProducts.setOnClickListener {
             val bundle = Bundle().apply {
                 putString("user_id", args.userId)
             }
@@ -49,19 +49,19 @@ class Fragment_User : Fragment(R.layout.fragment__user),DataListener {
                 bundle
             )
         }
-        binding.btnShowAllProducts.setOnClickListener {
+        binding.llAllProducts.setOnClickListener {
             val bundle = Bundle().apply {
                 putString("user_id", args.userId)
             }
             findNavController().navigate(R.id.action_fragment_User_to_fragmentAllArticles, bundle)
         }
-        binding.btnFindMyHistory.setOnClickListener {
+        binding.llUserHistory.setOnClickListener {
             val bundle = Bundle().apply {
                 putString("user_id", args.userId)
             }
             findNavController().navigate(R.id.action_fragment_User_to_fragmentHistory, bundle)
         }
-        binding.btnShowMatches.setOnClickListener {
+        binding.llCategory.setOnClickListener {
             val dialog = MyDialog()
             dialog.setTargetFragment(this, REQ_CODE)
             dialog.show(parentFragmentManager, "mydialog")

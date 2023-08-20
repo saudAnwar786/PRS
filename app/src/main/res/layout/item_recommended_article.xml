@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    layout_width=""
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:layout_width="match_parent"
-    android:elevation="6dp"
+    app:cardBackgroundColor="@color/white"
+    android:layout_margin="10dp"
+    android:elevation="10dp"
     app:cardCornerRadius="5dp">
 
 <LinearLayout
@@ -28,20 +29,17 @@
     <TextView
         android:id="@+id/tv_product_id"
         android:layout_width="match_parent"
-        android:textColor="@color/black"
         android:textStyle="bold"
         android:layout_height="wrap_content"
         android:text="product_id"/>
     <TextView
         android:id="@+id/tv_percentage"
-        android:textColor="@color/black"
         android:textStyle="bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="percentage"/>
     <TextView
         android:id="@+id/tvProductName"
-        android:textColor="@color/black"
         android:textStyle="bold"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -50,7 +48,6 @@
         android:id="@+id/tvProductCategory"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
         android:textStyle="bold"
         android:text="percentage"/>
 
