@@ -75,17 +75,26 @@ The sequences of nodes from the walks are used to train the Word2Vec model, whic
 
   <br>
 
-![WhatsApp Image 2023-08-20 at 16 58 22](https://github.com/saudAnwar786/PRS/assets/94756953/8271a433-8d5f-4bf4-8f33-7b11874c472c)
+
 
 <a name="demonstration"/>
 
 ### App Demonstration
-- Demo Video: 
-- The **UI layer** that displays application data on the screen and the **data layer** that contains the business logic of your app and exposes application data. An additional layer called the **domain layer** simplifies and reuses the interactions between the UI and data layers.
+- Demo Video:
+
 <p align="center" width="100%">
-    <img width="70%" src="https://github.com/saniaahmad6/new/assets/94756953/e7f3b0fa-0929-4e40-9f86-48084aa23f4f">
+  <img width="30%" src="https://github.com/saudAnwar786/PRS/assets/94756953/63c797a8-b55a-4293-bf2a-c61a729804a3">
+  <img width="30%" src="https://github.com/saudAnwar786/PRS/assets/94756953/36571e84-aea3-4ad2-a955-90e798b3df83">
+  <img width="30%" src="https://github.com/saudAnwar786/PRS/assets/94756953/91330f6c-cbef-4449-90e8-ff42c26520a2">
 </p>
-- [Retrofit](https://square.github.io/retrofit/) : a type-safe REST client for Android
+
+- Programming Language: Kotlin
+- **MVVM with clean Architecture:** Architecture Components (View Models, Live Data ,Flows , Navigation Components)
+- **Kotlin coroutine** for Asynchronous processes
+- **Dagger Hilt** for Dependency Injection 
+- Libraries: [Retrofit](https://square.github.io/retrofit) (a type-safe REST client for Android), Glide (for image Loading)
+- Third-party library: Firebase database, Firebase storage
+
 <p align="center" width="100%">
     <img width="70%" src="https://github.com/saniaahmad6/new/assets/94756953/baf81d95-2341-49db-82f8-514b7d62ee76">
 </p>
