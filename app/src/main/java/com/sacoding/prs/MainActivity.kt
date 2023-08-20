@@ -18,5 +18,27 @@ class MainActivity : AppCompatActivity() {
         val navHostFragment=supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
         val navController=navHostFragment.navController
         binding.bottomNavigationView.setupWithNavController(navController)
+
+       navController.addOnDestinationChangedListener{_,des,_->
+           when(des.id){
+                R.id.fragmentHistory->{
+                    supportActionBar?.title = "History"
+                }
+                R.id.fragment_User,R.id.fragment1->{
+                    supportActionBar?.title = "Byte Shift"
+                }
+               R.id.fragmentAllArticles->{
+                   supportActionBar?.title = "All Products"
+               }
+               R.id.fragmentSearchByCategories,R.id.recommendedProductsFragment->{
+                   supportActionBar?.title = "Recommendations"
+               }
+               R.id.fragment2->{
+                   supportActionBar?.title = "Support Us"
+               }
+           }
+
+       }
+
     }
 }
