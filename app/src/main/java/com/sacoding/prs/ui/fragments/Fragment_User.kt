@@ -18,8 +18,10 @@
  import androidx.navigation.fragment.navArgs
  import androidx.recyclerview.widget.LinearLayoutManager
  import com.google.android.material.snackbar.Snackbar
+ import com.google.gson.Gson
  import com.sacoding.prs.Adapter.MainAdapter
  import com.sacoding.prs.R
+ import com.sacoding.prs.data.models.ArrayParcleable
  import com.sacoding.prs.databinding.Fragment1Binding
  import com.sacoding.prs.databinding.FragmentUserBinding
  import com.sacoding.prs.others.Constants
@@ -67,15 +69,14 @@ class Fragment_User : Fragment(R.layout.fragment__user),DataListener {
     }
 
     override fun onDataReceived(data: ArrayList<String>) {
-        Log.d("Tag",data.toString())
         goToCategFragment(data)
-
     }
 
     private fun goToCategFragment(data: ArrayList<String>) {
+        val fList=ArrayParcleable(data)
         val bundle=Bundle().apply {
             putString("user_id",args.userId)
-//            putStringArrayList("list",data)
+            putSerializable("list",fList)
         }
         findNavController().navigate(R.id.action_fragment_User_to_fragmentSearchByCategories,bundle)
     }

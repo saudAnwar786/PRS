@@ -76,6 +76,6 @@
             app:argType="string" />
         <argument
             android:name="list"
-            app:argType="string[]" />
+            app:argType="com.sacoding.prs.data.models.ArrayParcleable" />
     </fragment>
 </navigation>

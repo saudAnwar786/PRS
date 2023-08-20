@@ -24,6 +24,6 @@ interface ProductApi {
     suspend fun getUserHistory(@Query("user_id") userId:Int): UserHistory
 
     @GET("/categorywise_recommendation")
-    suspend fun getProductCategory(@Query("user_id") userId:Int,@Query("category") category:List<String>): ProductCategory
+    suspend fun getProductCategory(@Query("user_id") userId:Int,@Query("category") category:String): ProductCategory
 
 }

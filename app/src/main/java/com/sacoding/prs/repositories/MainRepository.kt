@@ -78,7 +78,7 @@ class MainRepository @Inject constructor(
         }
         emit(Resource.Success(response))
     }
-    suspend fun getProductCategory(userId: Int,category:List<String>) = flow {
+    suspend fun getProductCategory(userId: Int,category:String) = flow {
         emit(Resource.Loading())
         val response = try{
             api.getProductCategory(userId, category)

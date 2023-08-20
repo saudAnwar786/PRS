@@ -105,7 +105,7 @@ class MainViewModel @Inject constructor(
             }
         }
     }
-    fun getProductCategory(userId: Int,category:List<String>){
+    fun getProductCategory(userId: Int,category:String){
         viewModelScope.launch {
             val result = repository.getProductCategory(userId, category)
             result.collectLatest {
