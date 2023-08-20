@@ -46,43 +46,6 @@ The working of the the algorithm is demonstrated in an Android application.
 ![Graph](https://github.com/saniaahmad6/new/assets/94756953/24eb970c-0b22-4278-a602-855f1e1febbe)
 
 
-### Requirements 
- - Python 3.6
-
-   ```
-    blinker==1.6.2
-    click==8.1.6
-    colorama==0.4.6
-    contourpy==1.1.0
-    cycler==0.11.0
-    Flask==2.3.2
-    Flask-Cors==4.0.0
-    fonttools==4.42.0
-    gensim==4.3.1
-    itsdangerous==2.1.2
-    Jinja2==3.1.2
-    joblib==1.3.2
-    kiwisolver==1.4.4
-    MarkupSafe==2.1.3
-    matplotlib==3.7.2
-    networkx==3.1
-    numpy==1.25.2
-    packaging==23.1
-    pandas==2.0.3
-    Pillow==10.0.0
-    pyparsing==3.0.9
-    python-dateutil==2.8.2
-    pytz==2023.3
-    scikit-learn==1.3.0
-    scipy==1.11.1
-    seaborn==0.12.2
-    six==1.16.0
-    sklearn==0.0.post7
-    smart-open==6.3.0
-    threadpoolctl==3.2.0
-    tzdata==2023.3
-    Werkzeug==2.3.7
-   ```
 
 ### Training Data (Sentences or Sequences)
 - The training data corresponds to the sequences of nodes generated from random walks on the graph of customer-item interactions. Each sequence of nodes represents a walk that a "walker" takes in the graph, simulating how a user interacts with different items.
@@ -110,10 +73,10 @@ The sequences of nodes from the walks are used to train the Word2Vec model, whic
 </p>
 
 ### Running instructions
-- Create an environment with all the packages and libraries specified in the "requirements" section and run the following command in terminal.
+- Create an environment with all the packages and libraries specified by executing the following command in the terminal.
 
     ```
-    pip install -r reuirements.txt
+    pip install -r requirements.txt
 
     ```
 
