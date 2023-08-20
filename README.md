@@ -57,7 +57,8 @@ The working of the the algorithm is demonstrated in an Android application.
 
 ![Graph](https://github.com/saniaahmad6/new/assets/94756953/24eb970c-0b22-4278-a602-855f1e1febbe)
 
-
+- To access the model and CSV files, [click here](https://drive.google.com/file/d/1hfGrM1UpJdTvKwmc9y8osLq6_a5M4n9L/view?usp=drive_link )
+  
 <a name="training"/>
 
 ### Training Data (Sentences or Sequences)
