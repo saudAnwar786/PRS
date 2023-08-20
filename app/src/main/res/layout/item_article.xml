@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardCornerRadius="10dp"
+        android:elevation="6dp"
         app:cardBackgroundColor="#C6C2C2"
         >
         <androidx.appcompat.widget.LinearLayoutCompat
