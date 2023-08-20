@@ -103,7 +103,7 @@ The sequences of nodes from the walks are used to train the Word2Vec model, whic
 
 ### Installation and running in local
 
-**Git** and **npm** should be globally installed in your system.
+**Git** should be globally installed in your system.
 
 - Fork this repository
 
