@@ -1,12 +1,12 @@
 ## Personalized Product Recommendation System - Flipkart GRiD 5.0
 
-Team Name:  **Byte Shift**
+#### Team Name:  **Byte Shift**
 
 ### Problem Definition
 Implemented a personalized product ranking system by using an algorithm that can generate accurate and relevant product
 rankings for individual users and taking into consideration factors such as user preferences, past interactions, product popularity, and user similarity. 
 
-The working of the the algorithm is demonstrated in an Android application.
+The working of the algorithm is demonstrated in an Android application.
 
 #### Deliverables: 
 - A personalized recommendation system for effectively ranking products 
@@ -81,7 +81,6 @@ The sequences of nodes from the walks are used to train the Word2Vec model, whic
 <a name="demonstration"/>
 
 ### App Demonstration
-- Demo Video:
 
 <p align="center" width="100%">
   <img width="30%" src="https://github.com/saudAnwar786/PRS/assets/94756953/63c797a8-b55a-4293-bf2a-c61a729804a3">
@@ -123,7 +122,7 @@ The sequences of nodes from the walks are used to train the Word2Vec model, whic
 - To run the app on the emulator: In your API/URL directly use`http://127.0.0.1:[your port]/` and under the emulator setting add the proxy address as `10.0.2.2` with the port number.
 
 
-*Note*: These instructions are intended to set up and run the the project locally.
+*Note*: These instructions are intended to set up and run the project locally.
 
 <a name="authors"/>
 
