@@ -1,19 +1,31 @@
 ## Personalized Product Recommendation System - Flipkart GRiD 5.0
 
-Team Name:  **Byte Shift**
+#### Team Name:  **Byte Shift**
 
 ### Problem Definition
 Implemented a personalized product ranking system by using an algorithm that can generate accurate and relevant product
-rankings for individual users and taking into consideration  factors such as user preferences, past interactions, product popularity, and user similarity. 
+rankings for individual users and taking into consideration factors such as user preferences, past interactions, product popularity, and user similarity. 
 
-The working of the the algorithm is demonstrated in an Android application.
+The working of the algorithm is demonstrated in an Android application.
 
 #### Deliverables: 
-- A mechanism for effectively ranking products on e-Commerce sites
-- An Android application APK
+- A personalized recommendation system for effectively ranking products 
+- An Android Interface
 - Video Demonstration  
 
-### Subproblems
+
+## Table Of Contents
+
+  1. [Sub-problems](https://github.com/saudAnwar786/PRS/tree/master#sub-problems)
+  2. [Training the data](https://github.com/saudAnwar786/PRS/tree/master#training)
+  3. [Metrics](https://github.com/saudAnwar786/PRS/tree/master#metrics)
+  4. [App demonstration](https://github.com/saudAnwar786/PRS/tree/master#demonstration)
+  5. [Installation](https://github.com/saudAnwar786/PRS/tree/master#installation)
+  6. [Authors](https://github.com/saudAnwar786/PRS/tree/master#authors)
+
+<a name="sub-problems"/>
+
+### Sub-problems
 - **Data Preprocessing**: The code filters out articles and customers with low frequencies of interactions.
 
 
@@ -45,7 +57,9 @@ The working of the the algorithm is demonstrated in an Android application.
 
 ![Graph](https://github.com/saniaahmad6/new/assets/94756953/24eb970c-0b22-4278-a602-855f1e1febbe)
 
-
+- To access the model and CSV files, [click here](https://drive.google.com/file/d/1hfGrM1UpJdTvKwmc9y8osLq6_a5M4n9L/view?usp=drive_link )
+  
+<a name="training"/>
 
 ### Training Data (Sentences or Sequences)
 - The training data corresponds to the sequences of nodes generated from random walks on the graph of customer-item interactions. Each sequence of nodes represents a walk that a "walker" takes in the graph, simulating how a user interacts with different items.
@@ -54,40 +68,67 @@ The working of the the algorithm is demonstrated in an Android application.
 
 The sequences of nodes from the walks are used to train the Word2Vec model, which learns embeddings that capture the relationships between users and items.
 
+<a name="metrics"/>
+
 ### Metrics
 - For a recommendation system, we can associate a diversity score to the solution. Diversity in this context refers to how different or dissimilar the recommended items are from each other. A higher diversity score indicates a greater variety in the recommendations, which can be beneficial to capture different aspects of a user's preferences.
 - Our solution has a diversity score of 0.51 (51%)
 
   <br>
 
-![WhatsApp Image 2023-08-20 at 16 58 22](https://github.com/saudAnwar786/PRS/assets/94756953/8271a433-8d5f-4bf4-8f33-7b11874c472c)
+
+
+<a name="demonstration"/>
+
 ### App Demonstration
-- Demo Video: 
-- The **UI layer** that displays application data on the screen and the **data layer** that contains the business logic of your app and exposes application data. An additional layer called the **domain layer** simplifies and reuses the interactions between the UI and data layers.
+
 <p align="center" width="100%">
-    <img width="70%" src="https://github.com/saniaahmad6/new/assets/94756953/e7f3b0fa-0929-4e40-9f86-48084aa23f4f">
+  <img width="30%" src="https://github.com/saudAnwar786/PRS/assets/94756953/63c797a8-b55a-4293-bf2a-c61a729804a3">
+  <img width="30%" src="https://github.com/saudAnwar786/PRS/assets/94756953/36571e84-aea3-4ad2-a955-90e798b3df83">
+  <img width="30%" src="https://github.com/saudAnwar786/PRS/assets/94756953/91330f6c-cbef-4449-90e8-ff42c26520a2">
 </p>
-- [Retrofit](https://square.github.io/retrofit/) : a type-safe REST client for Android
+
+- Programming Language: Kotlin
+- **MVVM with clean Architecture:** Architecture Components (View Models, Live Data ,Flows , Navigation Components)
+- **Kotlin coroutine** for Asynchronous processes
+- **Dagger Hilt** for Dependency Injection 
+- Libraries: [Retrofit](https://square.github.io/retrofit) (a type-safe REST client for Android), Glide (for image Loading)
+- Third-party library: Firebase database, Firebase storage
+
 <p align="center" width="100%">
     <img width="70%" src="https://github.com/saniaahmad6/new/assets/94756953/baf81d95-2341-49db-82f8-514b7d62ee76">
 </p>
 
-### Running instructions
-- Create an environment with all the packages and libraries specified by executing the following command in the terminal.
+<a name="installation"/>
 
-    ```
+### Installation and running in local
+
+**Git** should be globally installed in your system.
+
+- Fork this repository
+
+- Clone the repository
+```bash
+  git clone <your-forked-repository>
+```
+- To access the model and CSV files, [click here](https://drive.google.com/file/d/1hfGrM1UpJdTvKwmc9y8osLq6_a5M4n9L/view?usp=drive_link )
+
+- Create an environment with all the packages and libraries specified by executing the following command in the terminal and start the server locally.
+
+    ```bash
+    cd backend
     pip install -r requirements.txt
-
+    python system.py
     ```
-- To run the app on the emulator: In your API/URL directly use`http://10.0.2.2:[your port]/` and under the emulator setting add the proxy address as 10.0.2.2 with the port number.
-- To run the `.apk` : use your network's IP address.
-- 
- 
 
-*Note*: These instructions are intended to get someone up and running with the application quickly and easily, alternatively you can choose to scrape data and train models from scratch using the respective scripts available in the repo
+- To run the app on the emulator: In your API/URL directly use`http://127.0.0.1:[your port]/` and under the emulator setting add the proxy address as `10.0.2.2` with the port number.
 
 
-#### Authors: 
+*Note*: These instructions are intended to set up and run the project locally.
+
+<a name="authors"/>
+
+### Authors: 
 - [Mohammed Ayan](https://github.com/AyanChaudhary)
 - [Sania Ahmad](https://github.com/saniaahmad6)
 - [Saud Anwar](https://github.com/saudAnwar786)

@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/fragment2"
-        android:name="com.sacoding.prs.ui.fragments.Fragment2"
+        android:name="com.sacoding.prs.ui.fragments.SupportFragment"
         android:label="Fragment2" />
     <fragment
         android:id="@+id/fragment_User"
