@@ -15,6 +15,7 @@ import com.google.android.material.snackbar.Snackbar
 import com.sacoding.prs.Adapter.AllArticlesAdapter
 import com.sacoding.prs.Adapter.MainAdapter
 import com.sacoding.prs.R
+import com.sacoding.prs.data.models.ArticleId
 import com.sacoding.prs.databinding.FragmentAllArticlesBinding
 import com.sacoding.prs.others.Resource
 import com.sacoding.prs.ui.viewModels.MainViewModel
@@ -33,8 +34,8 @@ class FragmentAllArticles : Fragment(R.layout.fragment_all_articles) {
         setUpRecyclerView()
         viewModel.getAllArticles()
         articlesAdapter.setOnItemClickListener(object :AllArticlesAdapter.OnItemClickListener{
-            override fun onItemClick(article: Long) {
-                viewModel.getArticleDetail(args.userId.toInt(),article)
+            override fun onItemClick(article: ArticleId) {
+                viewModel.getArticleDetail(args.userId.toInt(),article.article_id)
                 viewModel.articleDetail.observe(viewLifecycleOwner, Observer {
                     when(it){
                         is Resource.Success->{
@@ -55,7 +56,7 @@ class FragmentAllArticles : Fragment(R.layout.fragment_all_articles) {
         viewModel.uiStateForArticles.observe(viewLifecycleOwner, Observer {
             when(it){
                 is Resource.Success->{
-                    articlesAdapter.differ.submitList(it.data?.Articles_id)
+                    articlesAdapter.differ.submitList(it.data?.Article_id)
                 }
                 is Resource.Error -> {
                     Snackbar.make(binding.root,"${it.message}", Snackbar.LENGTH_LONG).show()

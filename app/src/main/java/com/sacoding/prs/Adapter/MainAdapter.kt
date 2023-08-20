@@ -5,23 +5,25 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.sacoding.prs.databinding.ItemviewBinding
+import com.sacoding.prs.data.models.RecommendedItem
+import com.sacoding.prs.databinding.ItemRecommendedArticleBinding
+
 
 class MainAdapter : RecyclerView.Adapter<MainAdapter.MainViewHolder>() {
 
-    inner class MainViewHolder(val binding: ItemviewBinding):RecyclerView.ViewHolder(binding.root)
+    inner class MainViewHolder(val binding: ItemRecommendedArticleBinding):RecyclerView.ViewHolder(binding.root)
 
-    val differCallBack = object : DiffUtil.ItemCallback<List<Double>>(){
+    val differCallBack = object : DiffUtil.ItemCallback<RecommendedItem>(){
         override fun areItemsTheSame(
-            oldItem: List<Double>,
-            newItem: List<Double>
+            oldItem: RecommendedItem,
+            newItem: RecommendedItem
         ): Boolean {
             return oldItem.hashCode() == newItem.hashCode()
         }
 
         override fun areContentsTheSame(
-            oldItem: List<Double>,
-            newItem: List<Double>
+            oldItem: RecommendedItem,
+            newItem: RecommendedItem
         ): Boolean {
             return oldItem == newItem
         }
@@ -30,7 +32,7 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.MainViewHolder>() {
     val differ  = AsyncListDiffer(this,differCallBack)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainViewHolder {
-        return MainViewHolder(ItemviewBinding.inflate(LayoutInflater.from(parent.context),parent,false))
+        return MainViewHolder(ItemRecommendedArticleBinding.inflate(LayoutInflater.from(parent.context),parent,false))
     }
 
     override fun getItemCount(): Int {
@@ -40,8 +42,10 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.MainViewHolder>() {
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
         val currItem = differ.currentList[position]
         holder.binding.apply {
-            tvProduct.text = currItem[0].toString()
-            tvPercentage.text = currItem[1].toString()
+            tvProductId.text = currItem.article_id.toString()
+            tvPercentage.text = currItem.probability.toString()
+            tvProductCategory.text = currItem.product_category
+            tvProductName.text = currItem.prod_name
         }
     }
 }

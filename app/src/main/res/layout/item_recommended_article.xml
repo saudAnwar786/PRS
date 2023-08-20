@@ -5,13 +5,23 @@
     android:orientation="vertical"
     android:padding="20dp">
     <TextView
-        android:id="@+id/tv_product"
+        android:id="@+id/tv_product_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:text="product_id"/>
     <TextView
         android:id="@+id/tv_percentage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="percentage"/>
+    <TextView
+        android:id="@+id/tvProductName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="percentage"/>
+    <TextView
+        android:id="@+id/tvProductCategory"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="percentage"/>

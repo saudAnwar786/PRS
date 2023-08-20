@@ -6,7 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.sacoding.prs.data.models.ArticleDetail
 import com.sacoding.prs.data.models.Articles
 import com.sacoding.prs.data.models.ProductCategory
-import com.sacoding.prs.data.models.RecommendedItems
+import com.sacoding.prs.data.models.ProductRecommended
 import com.sacoding.prs.data.models.UserHistory
 import com.sacoding.prs.others.Resource
 import com.sacoding.prs.repositories.MainRepository
@@ -20,7 +20,7 @@ class MainViewModel @Inject constructor(
     private val repository: MainRepository
 ) :ViewModel(){
 
-    val uiState: MutableLiveData<Resource<RecommendedItems>> = MutableLiveData()
+    val uiState: MutableLiveData<Resource<ProductRecommended>> = MutableLiveData()
     val uiStateForArticles: MutableLiveData<Resource<Articles>> = MutableLiveData()
 
     val articleDetail:MutableLiveData<Resource<ArticleDetail>> = MutableLiveData()

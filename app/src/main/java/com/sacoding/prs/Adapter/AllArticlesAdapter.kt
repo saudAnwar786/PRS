@@ -6,24 +6,21 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.sacoding.prs.data.models.Articles
+import com.sacoding.prs.data.models.ArticleId
 import com.sacoding.prs.databinding.ArticleItemBinding
 import java.math.BigDecimal
 import java.text.DecimalFormat
-import java.text.NumberFormat
-import java.text.ParseException
-import java.util.Locale
 
 class AllArticlesAdapter : RecyclerView.Adapter<AllArticlesAdapter.AllArticlesViewHolder>() {
 
     inner class AllArticlesViewHolder(val binding: ArticleItemBinding) : RecyclerView.ViewHolder(binding.root)
 
-    private val differCallBack = object : DiffUtil.ItemCallback<Long>(){
-        override fun areItemsTheSame(oldItem: Long, newItem: Long): Boolean {
+    private val differCallBack = object : DiffUtil.ItemCallback<ArticleId>(){
+        override fun areItemsTheSame(oldItem: ArticleId, newItem: ArticleId): Boolean {
             return oldItem.hashCode()==newItem.hashCode()
         }
 
-        override fun areContentsTheSame(oldItem: Long, newItem: Long): Boolean {
+        override fun areContentsTheSame(oldItem: ArticleId, newItem: ArticleId): Boolean {
             return oldItem==newItem
         }
     }
@@ -39,16 +36,18 @@ class AllArticlesAdapter : RecyclerView.Adapter<AllArticlesAdapter.AllArticlesVi
         val currItem=differ.currentList[position]
 //        Log.d("Tag", "${currItem}")
         holder.binding.apply {
-            val fetchedValue = currItem // For example, fetched value is 10^8 in scientific notation
-            val decimalFormat = DecimalFormat("#########") // Define the format you want
-            val formattedValue = decimalFormat.format(fetchedValue)
-            tvArticleId.text=formattedValue.toString()
-            root.setOnClickListener{
-                val value = BigDecimal(formattedValue.toString());
-                val doubleValue = value.toDouble();
-                Log.d("Tag", "${doubleValue}")
+//            val fetchedValue = currItem // For example, fetched value is 10^8 in scientific notation
+//            val decimalFormat = DecimalFormat("#########") // Define the format you want
+//            val formattedValue = decimalFormat.format(fetchedValue)
+            tvArticleId.text=currItem.article_id.toString()
+            tvProductName.text = currItem.prod_name.toString()
+            tvProductCategory.text = currItem.product_category.toString()
 
-                onItemClickListener?.onItemClick(formattedValue.toLong())
+            root.setOnClickListener{
+//                val value = BigDecimal(formattedValue.toString());
+//                val doubleValue = value.toDouble();
+//                Log.d("Tag", "${doubleValue}")
+                onItemClickListener?.onItemClick(currItem)
             }
         }
 
@@ -62,7 +61,7 @@ class AllArticlesAdapter : RecyclerView.Adapter<AllArticlesAdapter.AllArticlesVi
 
     // Define the OnItemClickListener interface
     interface OnItemClickListener {
-        fun onItemClick(article: Long)
+        fun onItemClick(article: ArticleId)
     }
     fun setOnItemClickListener(listener: OnItemClickListener) {
         this.onItemClickListener = listener
