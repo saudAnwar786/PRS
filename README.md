@@ -79,9 +79,10 @@ The sequences of nodes from the walks are used to train the Word2Vec model, whic
     pip install -r requirements.txt
 
     ```
-
-
+- To run the app on the emulator: In your API/URL directly use`http://10.0.2.2:[your port]/` and under the emulator setting add the proxy address as 10.0.2.2 with the port number.
+- To run the `.apk` : use your network's IP address.
 - 
+ 
 
 *Note*: These instructions are intended to get someone up and running with the application quickly and easily, alternatively you can choose to scrape data and train models from scratch using the respective scripts available in the repo
 
