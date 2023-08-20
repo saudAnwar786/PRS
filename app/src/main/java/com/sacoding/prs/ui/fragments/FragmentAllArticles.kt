@@ -1,8 +1,12 @@
 package com.sacoding.prs.ui.fragments
 
 import android.app.Dialog
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.view.View
+import android.view.Window
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -73,11 +77,17 @@ class FragmentAllArticles : Fragment(R.layout.fragment_all_articles) {
     private fun showDialog(prodId: String, prodName: String, prodProbab: String) {
         val dialog=Dialog(requireContext()).apply {
             setContentView(R.layout.article_dialog)
-            setCancelable(true)
+            //requestWindowFeature(Window.FEATURE_NO_TITLE)
+            setCanceledOnTouchOutside(true)
+            window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         }
         val tv_prodName=dialog.findViewById<TextView>(R.id.tv_product_name)
         val tv_prodId=dialog.findViewById<TextView>(R.id.tv_product_id)
         val tv_prodProbab=dialog.findViewById<TextView>(R.id.tv_product_buying_probability)
+        val canBtn=dialog.findViewById<ImageView>(R.id.iv_cancel)
+        canBtn.setOnClickListener{
+            dialog.dismiss()
+        }
         tv_prodName.text=prodName
         tv_prodId.text=prodId
         tv_prodProbab.text=prodProbab

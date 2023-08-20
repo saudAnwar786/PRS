@@ -36,6 +36,12 @@
         <action
             android:id="@+id/action_fragment_User_to_fragmentAllArticles"
             app:destination="@id/fragmentAllArticles" />
+        <action
+            android:id="@+id/action_fragment_User_to_fragmentHistory"
+            app:destination="@id/fragmentHistory" />
+        <action
+            android:id="@+id/action_fragment_User_to_fragmentSearchByCategories"
+            app:destination="@id/fragmentSearchByCategories" />
     </fragment>
     <fragment
         android:id="@+id/recommendedProductsFragment"
@@ -52,5 +58,24 @@
         <argument
             android:name="user_id"
             app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentHistory"
+        android:name="com.sacoding.prs.ui.fragments.FragmentHistory"
+        android:label="FragmentHistory" >
+        <argument
+            android:name="user_id"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentSearchByCategories"
+        android:name="com.sacoding.prs.ui.fragments.FragmentSearchByCategories"
+        android:label="FragmentSearchByCategories" >
+        <argument
+            android:name="user_id"
+            app:argType="string" />
+        <argument
+            android:name="list"
+            app:argType="string[]" />
     </fragment>
 </navigation>

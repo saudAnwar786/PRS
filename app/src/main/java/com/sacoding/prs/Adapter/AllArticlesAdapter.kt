@@ -7,13 +7,13 @@ import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.sacoding.prs.data.models.ArticleId
-import com.sacoding.prs.databinding.ArticleItemBinding
+import com.sacoding.prs.databinding.ItemArticleBinding
 import java.math.BigDecimal
 import java.text.DecimalFormat
 
 class AllArticlesAdapter : RecyclerView.Adapter<AllArticlesAdapter.AllArticlesViewHolder>() {
 
-    inner class AllArticlesViewHolder(val binding: ArticleItemBinding) : RecyclerView.ViewHolder(binding.root)
+    inner class AllArticlesViewHolder(val binding: ItemArticleBinding) : RecyclerView.ViewHolder(binding.root)
 
     private val differCallBack = object : DiffUtil.ItemCallback<ArticleId>(){
         override fun areItemsTheSame(oldItem: ArticleId, newItem: ArticleId): Boolean {
@@ -29,7 +29,7 @@ class AllArticlesAdapter : RecyclerView.Adapter<AllArticlesAdapter.AllArticlesVi
         parent: ViewGroup,
         viewType: Int
     ): AllArticlesAdapter.AllArticlesViewHolder {
-        return AllArticlesViewHolder(ArticleItemBinding.inflate(LayoutInflater.from(parent.context),parent,false))
+        return AllArticlesViewHolder(ItemArticleBinding.inflate(LayoutInflater.from(parent.context),parent,false))
     }
 
     override fun onBindViewHolder(holder: AllArticlesAdapter.AllArticlesViewHolder, position: Int)  {

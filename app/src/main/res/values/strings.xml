@@ -2,4 +2,24 @@
     <string name="app_name">PRS</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="CategoriesToBeSelected">
+        <item>Garment Upper body</item>
+        <item>Underwear</item>
+        <item>Garment Lower body</item>
+        <item>Accessories</item>
+        <item>Items</item>
+        <item>Nightwear</item>
+        <item>Unknown</item>
+        <item>Underwear/nightwear</item>
+        <item>Shoes</item>
+        <item>Swimwear</item>
+        <item>Garment Full body</item>
+        <item>Cosmetic</item>
+        <item>Interior textile</item>
+        <item>Bags</item>
+        <item>Furniture</item>
+        <item>Garment and Shoe care</item>
+        <item>Fun</item>
+        <item>Stationery</item>
+    </string-array>
 </resources>

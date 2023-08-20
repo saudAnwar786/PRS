@@ -14,9 +14,6 @@ interface ProductApi {
     @GET("/Recommended_items")
     suspend fun getAllRecommended(@Query("user_id")user_id : Int):ProductRecommended
 
-//    @GET("/history_records")
-//    suspend fun getHistoryOfUser(@Query("user_id")user_id : Int):
-
     @GET("/article_id")
     suspend fun getAllArticles() : Articles
 
@@ -24,7 +21,7 @@ interface ProductApi {
     suspend fun getArticleDetail(@Query("user_id") userId:Int,@Query("article_id") articleId:Long) : ArticleDetail
 
     @GET("/history_records")
-    suspend fun getUserHistory(@Query("user_id") userId:Int):UserHistory
+    suspend fun getUserHistory(@Query("user_id") userId:Int): UserHistory
 
     @GET("/categorywise_recommendation")
     suspend fun getProductCategory(@Query("user_id") userId:Int,@Query("category") category:List<String>): ProductCategory
