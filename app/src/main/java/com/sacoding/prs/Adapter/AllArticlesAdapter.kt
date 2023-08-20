@@ -6,12 +6,18 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.sacoding.prs.data.models.ArticleId
 import com.sacoding.prs.databinding.ItemArticleBinding
 import java.math.BigDecimal
 import java.text.DecimalFormat
 
 class AllArticlesAdapter : RecyclerView.Adapter<AllArticlesAdapter.AllArticlesViewHolder>() {
+    val dbRef= FirebaseDatabase.getInstance().getReference("categories")
 
     inner class AllArticlesViewHolder(val binding: ItemArticleBinding) : RecyclerView.ViewHolder(binding.root)
 
@@ -34,19 +40,23 @@ class AllArticlesAdapter : RecyclerView.Adapter<AllArticlesAdapter.AllArticlesVi
 
     override fun onBindViewHolder(holder: AllArticlesAdapter.AllArticlesViewHolder, position: Int)  {
         val currItem=differ.currentList[position]
-//        Log.d("Tag", "${currItem}")
         holder.binding.apply {
-//            val fetchedValue = currItem // For example, fetched value is 10^8 in scientific notation
-//            val decimalFormat = DecimalFormat("#########") // Define the format you want
-//            val formattedValue = decimalFormat.format(fetchedValue)
-            tvArticleId.text=currItem.article_id.toString()
-            tvProductName.text = currItem.prod_name.toString()
-            tvProductCategory.text = currItem.product_category.toString()
+            tvArticleId.text="Article ID : "+currItem.article_id.toString()
+            tvProductName.text = "Product Name : "+currItem.prod_name.toString()
+            tvProductCategory.text = "Category ID : "+currItem.product_category.toString()
+            val db=dbRef.child(currItem.product_category)
+            db.addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val imgUrl=snapshot.child("imgurl").getValue(String::class.java)
+                    Glide.with(root.context).load(imgUrl).into(ivImgArticle)
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    Log.d("Img",error.toString())
+                }
+            })
 
             root.setOnClickListener{
-//                val value = BigDecimal(formattedValue.toString());
-//                val doubleValue = value.toDouble();
-//                Log.d("Tag", "${doubleValue}")
                 onItemClickListener?.onItemClick(currItem)
             }
         }

@@ -43,15 +43,16 @@ class FragmentAllArticles : Fragment(R.layout.fragment_all_articles) {
                 viewModel.articleDetail.observe(viewLifecycleOwner, Observer {
                     when(it){
                         is Resource.Success->{
+                            val prodProbab = String.format("%.3f",(it.data?.probability?.times(100)))
                             val prodName=it.data?.prod_name ?: ""
-                            val prodProbab=it.data?.probability.toString() ?: ""
+//                            val prodProbab=it.data?.probability.toString() ?: ""
                             val prodId=it.data?.article_id.toString()?:""
                             showDialog(prodId,prodName,prodProbab)
                         }
 
                         is Resource.Error -> Toast.makeText(requireContext(),"${it.message}",Toast.LENGTH_LONG).show()
                         is Resource.Loading -> {
-                            Snackbar.make(view,"Loading...",Snackbar.LENGTH_LONG).show()
+//                            Snackbar.make(view,"Loading...",Snackbar.LENGTH_LONG).show()
                         }
                     }
                 })
@@ -90,7 +91,7 @@ class FragmentAllArticles : Fragment(R.layout.fragment_all_articles) {
         }
         tv_prodName.text=prodName
         tv_prodId.text=prodId
-        tv_prodProbab.text=prodProbab
+        tv_prodProbab.text=prodProbab+"%"
         dialog.show()
     }
 

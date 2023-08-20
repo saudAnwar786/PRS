@@ -17,7 +17,7 @@ import com.sacoding.prs.ui.fragments.Fragment_User
 class MyDialog: DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        val items = arrayOf("Garment Upper body","Underwear","Garment Lower body","Accessories","Items","Nightwear","Unknown","Underwear/nightwear",
+        val items = arrayOf("Garment Upper body","Underwear","Garment Lower body","Accessories","Items","Nightwear","Unknown","Underwear or nightwear",
             "Shoes","Swimwear","Garment Full body","Cosmetic","Interior textile","Bags","Furniture","Garment and Shoe care","Fun","Stationery")
         return activity?.let {
             val builder = AlertDialog.Builder(it)
