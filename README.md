@@ -48,12 +48,41 @@ The working of the the algorithm is demonstrated in an Android application.
 
 ### Requirements 
  - Python 3.6
- - sklearn
- - Matplotlib
- - Numpy
- - Pandas
- - Seaborn
- - networkx
+
+   ```
+    blinker==1.6.2
+    click==8.1.6
+    colorama==0.4.6
+    contourpy==1.1.0
+    cycler==0.11.0
+    Flask==2.3.2
+    Flask-Cors==4.0.0
+    fonttools==4.42.0
+    gensim==4.3.1
+    itsdangerous==2.1.2
+    Jinja2==3.1.2
+    joblib==1.3.2
+    kiwisolver==1.4.4
+    MarkupSafe==2.1.3
+    matplotlib==3.7.2
+    networkx==3.1
+    numpy==1.25.2
+    packaging==23.1
+    pandas==2.0.3
+    Pillow==10.0.0
+    pyparsing==3.0.9
+    python-dateutil==2.8.2
+    pytz==2023.3
+    scikit-learn==1.3.0
+    scipy==1.11.1
+    seaborn==0.12.2
+    six==1.16.0
+    sklearn==0.0.post7
+    smart-open==6.3.0
+    threadpoolctl==3.2.0
+    tzdata==2023.3
+    Werkzeug==2.3.7
+   ```
 
 ### Training Data (Sentences or Sequences)
 - The training data corresponds to the sequences of nodes generated from random walks on the graph of customer-item interactions. Each sequence of nodes represents a walk that a "walker" takes in the graph, simulating how a user interacts with different items.
@@ -62,6 +91,13 @@ The working of the the algorithm is demonstrated in an Android application.
 
 The sequences of nodes from the walks are used to train the Word2Vec model, which learns embeddings that capture the relationships between users and items.
 
+### Metrics
+- For a recommendation system, we can associate a diversity score to the solution. Diversity in this context refers to how different or dissimilar the recommended items are from each other. A higher diversity score indicates a greater variety in the recommendations, which can be beneficial to capture different aspects of a user's preferences.
+- Our solution has a diversity score of 0.51 (51%)
+
+  <br>
+
+![WhatsApp Image 2023-08-20 at 16 58 22](https://github.com/saudAnwar786/PRS/assets/94756953/8271a433-8d5f-4bf4-8f33-7b11874c472c)
 ### App Demonstration
 - Demo Video: 
 - The **UI layer** that displays application data on the screen and the **data layer** that contains the business logic of your app and exposes application data. An additional layer called the **domain layer** simplifies and reuses the interactions between the UI and data layers.
@@ -80,7 +116,6 @@ The sequences of nodes from the walks are used to train the Word2Vec model, whic
     pip install -r reuirements.txt
 
     ```
-
 
 
 - 
