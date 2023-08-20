@@ -8,7 +8,9 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="10dp"
         app:cardCornerRadius="5dp"
+        app:cardElevation="5dp"
         app:cardBackgroundColor="@color/white"
         >
         <androidx.appcompat.widget.LinearLayoutCompat
@@ -43,7 +45,6 @@
                     android:layout_height="wrap_content"
                     android:hint="Buying Probablity : "
                     android:textStyle="bold"
-                    android:textSize="18sp"
                     android:textColor="@color/black"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -61,15 +62,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.appcompat.widget.LinearLayoutCompat>
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                tools:text="234224"-->
-<!--                android:id="@+id/tv_category_probability"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:textSize="20sp"-->
-<!--                android:textStyle="bold"-->
-<!--                android:textColor="@color/black"/>-->
+
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/linearLayoutTwo"
                 android:layout_width="match_parent"
@@ -83,9 +76,8 @@
                     android:id="@+id/tv_prod_categoryHard"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="Product Category : "
+                    android:hint="Category : "
                     android:textStyle="bold"
-                    android:textSize="18sp"
                     android:textColor="@color/black"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -127,7 +119,6 @@
                     android:layout_height="wrap_content"
                     android:hint="Article Id : "
                     android:textStyle="bold"
-                    android:textSize="18sp"
                     android:textColor="@color/black"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -145,57 +136,7 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
             </androidx.appcompat.widget.LinearLayoutCompat>
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                tools:text="234224"-->
-<!--                android:id="@+id/tv_article_id"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:textSize="20sp"-->
-<!--                android:textStyle="bold"-->
-<!--                android:textColor="@color/black"/>-->
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:id="@+id/linearLayoutFour"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="4dp"
-                android:orientation="horizontal"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/linearLayoutTwo" >
 
-                <TextView
-                    android:id="@+id/tv_prod_codeHard"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:hint="Product Code : "
-                    android:textStyle="bold"
-                    android:textSize="18sp"
-                    android:textColor="@color/black"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/tv_prod_code"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Enter Text 1"
-                    android:textStyle="bold"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.appcompat.widget.LinearLayoutCompat>
-<!--            <TextView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                tools:text="234224"-->
-<!--                android:id="@+id/tv_prod_code"-->
-<!--                android:layout_gravity="center"-->
-<!--                android:textSize="20sp"-->
-<!--                android:textStyle="bold"-->
-<!--                android:textColor="@color/black"/>-->
             <androidx.appcompat.widget.LinearLayoutCompat
                 android:id="@+id/linearLayoutFive"
                 android:layout_width="match_parent"
@@ -211,7 +152,6 @@
                     android:layout_height="wrap_content"
                     android:hint="Product Name : "
                     android:textStyle="bold"
-                    android:textSize="18sp"
                     android:textColor="@color/black"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"

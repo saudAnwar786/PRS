@@ -43,6 +43,8 @@ class FragmentAllArticles : Fragment(R.layout.fragment_all_articles) {
                 viewModel.articleDetail.observe(viewLifecycleOwner, Observer {
                     when(it){
                         is Resource.Success->{
+//                            val absProbab=it.data?.probability
+//                            if(absProbab<0)
                             val prodProbab = String.format("%.3f",(it.data?.probability?.times(100)))
                             val prodName=it.data?.prod_name ?: ""
 //                            val prodProbab=it.data?.probability.toString() ?: ""
@@ -61,13 +63,15 @@ class FragmentAllArticles : Fragment(R.layout.fragment_all_articles) {
         viewModel.uiStateForArticles.observe(viewLifecycleOwner, Observer {
             when(it){
                 is Resource.Success->{
+                    binding.progressBar2.visibility=View.GONE
                     articlesAdapter.differ.submitList(it.data?.Article_id)
                 }
                 is Resource.Error -> {
+                    binding.progressBar2.visibility=View.GONE
                     Snackbar.make(binding.root,"${it.message}", Snackbar.LENGTH_LONG).show()
                 }
                 is Resource.Loading -> {
-
+                    binding.progressBar2.visibility=View.VISIBLE
                 }
 
             }
