@@ -111,6 +111,8 @@ The sequences of nodes from the walks are used to train the Word2Vec model, whic
 ```bash
   git clone <your-forked-repository>
 ```
+- To access the model and CSV files, [click here](https://drive.google.com/file/d/1hfGrM1UpJdTvKwmc9y8osLq6_a5M4n9L/view?usp=drive_link )
+
 - Create an environment with all the packages and libraries specified by executing the following command in the terminal and start the server locally.
 
     ```bash
