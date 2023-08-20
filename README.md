@@ -39,6 +39,7 @@ The working of the the algorithm is demonstrated in an Android application.
 
 ### Requirements 
  - Python 3.6
+ - sklearn
  - Matplotlib
  - Numpy
  - Pandas
