@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cardView"
+    android:layout_margin="10dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardCornerRadius="10dp"
@@ -11,7 +12,6 @@
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/gradient_all_product"
         android:orientation="vertical">
 
 
@@ -76,7 +76,7 @@
                 android:id="@+id/tv_product_buying_probabilityHard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Product Buying Probablity : "
+                android:hint="Buying Probablity : "
                 android:textStyle="bold"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"

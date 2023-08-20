@@ -51,7 +51,7 @@ class MainAdapter : RecyclerView.Adapter<MainAdapter.MainViewHolder>() {
         holder.binding.apply {
             val formattedNumber = String.format("%.3f",currItem.probability*100)
             tvProductId.text = "Product ID : "+currItem.article_id.toString()
-            tvPercentage.text = "Buying Percentage : "+formattedNumber+"%"
+            tvPercentage.text = "Buying Probability : "+formattedNumber+"%"
             tvProductCategory.text = "Category : "+currItem.product_category
             tvProductName.text = "Product Name : "+currItem.prod_name
             val db=dbRef.child(currItem.product_category)

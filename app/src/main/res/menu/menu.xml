@@ -6,5 +6,5 @@
         />
     <item android:id="@+id/fragment2"
         android:icon="@drawable/baseline_help_24"
-        android:title="Support"/>
+        android:title="More"/>
 </menu>

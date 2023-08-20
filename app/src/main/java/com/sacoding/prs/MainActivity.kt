@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
                    supportActionBar?.title = "Recommendations"
                }
                R.id.fragment2->{
-                   supportActionBar?.title = "Support Us"
+                   supportActionBar?.title = "More"
                }
            }
 
