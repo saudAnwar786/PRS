@@ -24,6 +24,7 @@ The working of the the algorithm is demonstrated in an Android application.
   6. [Authors](https://github.com/saudAnwar786/PRS/tree/master#authors)
 
 <a name="sub-problems"/>
+
 ### Sub-problems
 - **Data Preprocessing**: The code filters out articles and customers with low frequencies of interactions.
 
@@ -58,6 +59,7 @@ The working of the the algorithm is demonstrated in an Android application.
 
 
 <a name="training"/>
+
 ### Training Data (Sentences or Sequences)
 - The training data corresponds to the sequences of nodes generated from random walks on the graph of customer-item interactions. Each sequence of nodes represents a walk that a "walker" takes in the graph, simulating how a user interacts with different items.
 - The generate_walks function in the code generates these sequences of nodes (walks). These walks are treated as "sentences" for the Word2Vec model.
@@ -66,6 +68,7 @@ The working of the the algorithm is demonstrated in an Android application.
 The sequences of nodes from the walks are used to train the Word2Vec model, which learns embeddings that capture the relationships between users and items.
 
 <a name="metrics"/>
+
 ### Metrics
 - For a recommendation system, we can associate a diversity score to the solution. Diversity in this context refers to how different or dissimilar the recommended items are from each other. A higher diversity score indicates a greater variety in the recommendations, which can be beneficial to capture different aspects of a user's preferences.
 - Our solution has a diversity score of 0.51 (51%)
@@ -75,6 +78,7 @@ The sequences of nodes from the walks are used to train the Word2Vec model, whic
 ![WhatsApp Image 2023-08-20 at 16 58 22](https://github.com/saudAnwar786/PRS/assets/94756953/8271a433-8d5f-4bf4-8f33-7b11874c472c)
 
 <a name="demonstration"/>
+
 ### App Demonstration
 - Demo Video: 
 - The **UI layer** that displays application data on the screen and the **data layer** that contains the business logic of your app and exposes application data. An additional layer called the **domain layer** simplifies and reuses the interactions between the UI and data layers.
@@ -87,6 +91,7 @@ The sequences of nodes from the walks are used to train the Word2Vec model, whic
 </p>
 
 <a name="installation"/>
+
 ### Installation and running in local
 
 **Git** and **npm** should be globally installed in your system.
@@ -111,6 +116,7 @@ The sequences of nodes from the walks are used to train the Word2Vec model, whic
 *Note*: These instructions are intended to set up and run the the project locally.
 
 <a name="authors"/>
+
 ### Authors: 
 - [Mohammed Ayan](https://github.com/AyanChaudhary)
 - [Sania Ahmad](https://github.com/saniaahmad6)
