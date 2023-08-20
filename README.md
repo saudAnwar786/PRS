@@ -54,8 +54,11 @@ The working of the the algorithm is demonstrated in an Android application.
 The sequences of nodes from the walks are used to train the Word2Vec model, which learns embeddings that capture the relationships between users and items.
 
 ### App Demonstration
-
 - Demo Video: 
+- The **UI layer** that displays application data on the screen and the **data layer** that contains the business logic of your app and exposes application data. An additional layer called the **domain layer** simplifies and reuses the interactions between the UI and data layers.
+![image](https://github.com/saniaahmad6/new/assets/94756953/e7f3b0fa-0929-4e40-9f86-48084aa23f4f)
+- [Retrofit](https://square.github.io/retrofit/): a type-safe REST client for Android
+![image](https://github.com/saniaahmad6/new/assets/94756953/baf81d95-2341-49db-82f8-514b7d62ee76)
 
 ### Running instructions
 - Create an environment with all the packages and libraries specified in the "requirements" section and run the following command in terminal.
