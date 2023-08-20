@@ -11,7 +11,7 @@ The working of the algorithm is demonstrated in an Android application.
 #### Deliverables: 
 - A personalized recommendation system for effectively ranking products 
 - An Android Interface
-- Video Demonstration  
+- [Video Demonstration](https://drive.google.com/file/d/1MSxuNE4927LLxQGH1mAZruBOhoCza3Uy/view?usp=sharing )  
 
 
 ## Table Of Contents
