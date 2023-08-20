@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
 
        navController.addOnDestinationChangedListener{_,des,_->
            when(des.id){
+
                 R.id.fragmentHistory->{
                     supportActionBar?.title = "History"
                 }
